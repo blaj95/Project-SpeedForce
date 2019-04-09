@@ -12,7 +12,8 @@ public class TestMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos1 = GameObject.Find("Pos1").transform;
+        pos2 = GameObject.Find("Pos2").transform;
     }
 
     // Update is called once per frame

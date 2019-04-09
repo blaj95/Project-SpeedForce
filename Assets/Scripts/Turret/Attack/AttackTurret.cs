@@ -4,7 +4,15 @@ namespace Turret
 {
     public class AttackTurret : TurretBase
     {
-        public int fireRate { get; set; }
+        public float fireRate { get; set; }
+
+        public Transform firePoint;
+
+        public Transform startPosition;
+
+        public Collider FOV;
+
+        public GameObject target;
         
         public AttackTurret(): base()
         {
@@ -16,7 +24,10 @@ namespace Turret
             base.Action();
             //Action is meant to attack enemy targets
             Debug.Log("attack action");
+            
         }
-
+        
+        
+        
     }
 }
