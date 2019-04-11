@@ -24,7 +24,7 @@ public class FOV : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void OnCollisionStay(Collision other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
@@ -33,7 +33,7 @@ public class FOV : MonoBehaviour
         }
     }
     
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag("Enemy"))
         {

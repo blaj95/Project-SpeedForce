@@ -22,11 +22,7 @@ public class TurretBaseV2 : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public virtual void Start()
-    {
-        
-    }
-
+    
     public virtual void SetStats(float health, TurretType _type)
     {
         Health = health;

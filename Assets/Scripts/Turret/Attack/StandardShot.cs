@@ -24,7 +24,7 @@ public class StandardShot : MonoBehaviour
     {
         standardShot = new AttackTurret();
         standardShot.SetUp(TurretBase.TurretType.ATTACK);
-        Debug.Log(standardShot.type.ToString());
+        
         standardShot.Experience = 0f;
         standardShot.firePoint = firePoint;
         standardShot.startPosition = transform;
