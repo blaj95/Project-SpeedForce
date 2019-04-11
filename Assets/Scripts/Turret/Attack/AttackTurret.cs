@@ -23,7 +23,7 @@ namespace Turret
         {
             base.Action();
             //Action is meant to attack enemy targets
-            Debug.Log("attack action");
+           
             
         }
         

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestSpawn : MonoBehaviour
+public class GateTurret : NewDefenseTurret
 {
-    public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", 1, 3);
+        SetStats(10, TurretType.DEFENSE);
     }
 
     // Update is called once per frame
@@ -17,8 +16,10 @@ public class TestSpawn : MonoBehaviour
         
     }
 
-    void Spawn()
+    private void OnTriggerEnter(Collider other)
     {
-        Instantiate(enemy, transform.position, Quaternion.identity);
+        Enemy enemy = other.GetComponent<Enemy>();
+        enemy.OnHit(1);
+        Debug.Log("Wall has hit enemy");
     }
 }

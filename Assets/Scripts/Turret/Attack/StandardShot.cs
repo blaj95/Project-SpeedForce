@@ -22,7 +22,6 @@ public class StandardShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Setting Attack Turret");
         standardShot = new AttackTurret();
         standardShot.SetUp(TurretBase.TurretType.ATTACK);
         Debug.Log(standardShot.type.ToString());
@@ -43,7 +42,6 @@ public class StandardShot : MonoBehaviour
             if (cooldown <= 0)
             {
                 Engage();
-                Debug.Log("Engage");
                 cooldown = 1f / standardShot.fireRate;
             }
 
@@ -59,7 +57,6 @@ public class StandardShot : MonoBehaviour
     {
         if (standardShot.target != null)
         {
-            Debug.Log("Locking On");
             step = speed * Time.deltaTime;
             var lookPos = standardShot.target.transform.position - rotatePoint.transform.position;
             lookPos.y = 0;

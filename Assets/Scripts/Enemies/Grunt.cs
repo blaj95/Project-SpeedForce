@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Grunt : Enemy
 {
-    private Enemy grunt;
 
     public float _health
     {
-        get => grunt.health;
+        get => health;
         set
         {
-            grunt.health = value;
-            if (grunt.health <= 0)
+            health = value;
+            if (health <= 0)
             {
-                grunt.Die(gameObject);
+                Die(gameObject);
             }
         }
     }
@@ -22,8 +21,7 @@ public class Grunt : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        grunt = new Enemy();
-        grunt.health = 3f;
+        _health = 3;
     }
 
     public override void OnHit(float damage)
