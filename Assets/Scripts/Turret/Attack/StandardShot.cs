@@ -7,7 +7,9 @@ public class StandardShot : AttackTurret
     public override void Start()
     {
         base.Start();
+        SetStats(10,TurretType.ATTACK);
         FireRate = 1;
+        damage = 1;
     }
 
     public override void FixedUpdate()
@@ -23,6 +25,7 @@ public class StandardShot : AttackTurret
         Projectile proj = bullet.GetComponent<Projectile>();
         if (proj != null)
         {
+            proj.damage = damage;
             proj.SeekTarget(target.transform);
         }
     }

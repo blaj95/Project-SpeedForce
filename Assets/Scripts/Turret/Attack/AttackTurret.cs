@@ -26,6 +26,7 @@ public class AttackTurret : TurretBase
 
     public float snapSpeed;
 
+
     public Transform pointOfFire;
 
     public Transform rotatePoint;

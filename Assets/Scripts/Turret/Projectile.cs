@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     private Transform target;
     public float speed = 60f;
 
-    public float damage = 1;    
+    public float damage;    
     // Start is called before the first frame update
     void Start()
     {

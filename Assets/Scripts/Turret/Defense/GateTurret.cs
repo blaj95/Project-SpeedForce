@@ -9,6 +9,7 @@ public class GateTurret : DefenseTurret
     void Start()
     {
         SetStats(10, TurretType.DEFENSE);
+        damage = 1;
     }
 
     // Update is called once per frame

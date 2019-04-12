@@ -20,6 +20,8 @@ public class TurretBase : MonoBehaviour
         get => _health;
         set => _health = value;
     }
+    
+    public float damage;
 
     // Start is called before the first frame update
     
