@@ -1,45 +1,31 @@
-﻿namespace Turret
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TurretBase : MonoBehaviour
 {
-    public class TurretBase
+    public enum TurretType
     {
-        public enum TurretType
-        {
-            ATTACK,
-            DEFENSE,
-            BUFF
-        }
+        ATTACK,
+        DEFENSE,
+        BUFF
+    }
+    
+    public TurretType type;
+    
+    private float _health;
 
-        public TurretType type;
+    public float Health
+    {
+        get => _health;
+        set => _health = value;
+    }
 
-        public float Health { get; set; }
-
-        private float experience;
-
-        public float Experience
-        {
-            get => experience;
-            set => experience = value;
-        }
-
-        public float TurretLevel
-        {
-            get => experience / 1000f;
-            set => experience = value * 1000f;
-        }
-
-        //Static variables are constant across all classes, if it's changed in one place its changed in the rest
-        //Can be called without reference to a class, even if it's a method
-        public static int turretCount = 0;
-
-        public void SetUp(TurretType _type)
-        {
-            _type = type;
-            experience = 0;
-        }
-
-        public virtual void Action()
-        {
-            //Action that a turret automatically produces
-        }
+    // Start is called before the first frame update
+    
+    public virtual void SetStats(float health, TurretType _type)
+    {
+        Health = health;
+        type = _type;
     }
 }
