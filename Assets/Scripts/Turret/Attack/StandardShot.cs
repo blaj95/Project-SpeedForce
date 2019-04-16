@@ -6,10 +6,11 @@ public class StandardShot : AttackTurret
 {
     public override void Start()
     {
-        base.Start();
         SetStats(10,TurretType.ATTACK);
         FireRate = 1;
         damage = 1;
+        Cost = 50f;
+        base.Start();
     }
 
     public override void FixedUpdate()

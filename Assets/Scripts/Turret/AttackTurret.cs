@@ -40,8 +40,9 @@ public class AttackTurret : TurretBase
     public FOV fov;
 
 
-    public virtual void Start()
+    public override void Start()
     {
+        base.Start();
         startPosition = gameObject.transform;
     }
 

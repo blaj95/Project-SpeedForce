@@ -23,6 +23,19 @@ public class TurretBase : MonoBehaviour
     
     public float damage;
 
+    private float cost;
+
+    public float Cost
+    {
+        get => cost;
+        set => cost = value;
+    }
+    
+    public virtual void Start()
+    {
+        PlayerResources.Money -= cost;
+    }
+
     // Start is called before the first frame update
     
     public virtual void SetStats(float health, TurretType _type)

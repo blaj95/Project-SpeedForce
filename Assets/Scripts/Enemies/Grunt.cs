@@ -5,28 +5,22 @@ using UnityEngine;
 public class Grunt : Enemy
 {
 
-    public float _health
-    {
-        get => health;
-        set
-        {
-            health = value;
-            if (health <= 0)
-            {
-                Die(gameObject);
-            }
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        _health = 3;
+        Health = 3;
+        Experience = 5;
+    }
+
+    public override void Die(GameObject gameObject)
+    {
+        PlayerResources.Money += Experience;
+        base.Die(gameObject);
     }
 
     public override void OnHit(float damage)
     {
         base.OnHit();
-        _health -= damage;
+        Health -= damage;
     }
 }

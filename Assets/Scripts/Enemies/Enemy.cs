@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health
+    private float health;
+    
+    public float Health
     {
-        get; 
-        set;
+        get => health;
+        set
+        {
+            health = value;
+            if (health <= 0)
+            {
+                Die(gameObject);
+            }
+        }
     }
 
-    public void Die(GameObject gameObject)
+    private float experience;
+
+    public float Experience
+    {
+        get => experience;
+        set => experience = value;
+    }
+
+    public virtual void Die(GameObject gameObject)
     {
         Destroy(gameObject);
     }
@@ -19,12 +36,12 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnHit()
     {
-        Debug.Log("HIT");
+        
     }
     
     public virtual void OnHit(float damage)
     {
-        Debug.Log("HIT WITH DAMAGE");
+        
     }
 
    
