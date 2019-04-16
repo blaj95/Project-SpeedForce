@@ -10,6 +10,7 @@ public class Grunt : Enemy
     {
         Health = 3;
         Experience = 5;
+        speed = 3;
     }
 
     public override void Die(GameObject gameObject)

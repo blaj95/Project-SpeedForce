@@ -9,6 +9,8 @@ public class TestMove : MonoBehaviour
     private Transform targetPoint;
 
     private int wavePointIndex = 0;
+
+    private Enemy enemy;
 //    public Transform pos1;
 //
 //    public Transform pos2;
@@ -17,6 +19,7 @@ public class TestMove : MonoBehaviour
     void Start()
     {
         targetPoint = Waypoints.points[0];
+        enemy = GetComponent<Enemy>();
     }
 
     // Update is called once per frame

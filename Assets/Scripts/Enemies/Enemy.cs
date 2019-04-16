@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
         set => experience = value;
     }
 
+    public float speed;
+
     public virtual void Die(GameObject gameObject)
     {
         Destroy(gameObject);
