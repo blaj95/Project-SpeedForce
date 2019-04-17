@@ -8,11 +8,11 @@ public class ShockwaveTurret : AttackTurret
     public GameObject ShockArea;
 
     private SphereCollider shockCollider;
+    private MeshRenderer shockMesh;
     
     public override void Start()
     {
-        shockCollider = GetComponentInChildren<SphereCollider>();
-        Debug.Log(shockCollider.name);
+        shockMesh = transform.GetChild(0).GetComponent<MeshRenderer>();
         SetStats(10,TurretType.ATTACK);
         FireRate = .33f;
         damage = 1f;
@@ -32,7 +32,7 @@ public class ShockwaveTurret : AttackTurret
         if (Cooldown <= 0)
         {
             StartCoroutine(Shockwave());
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, shockCollider.radius * shockCollider.transform.localScale.z);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3);
             foreach (Collider enemy in hitColliders)
             {
                 if (enemy.CompareTag("Enemy"))
@@ -61,8 +61,8 @@ public class ShockwaveTurret : AttackTurret
 
     IEnumerator Shockwave()
     {
-        ShockArea.SetActive(true);
+        shockMesh.enabled = true;
         yield return new WaitForSeconds(.5f);
-        ShockArea.SetActive(false);
+        shockMesh.enabled = false;
     }
 }

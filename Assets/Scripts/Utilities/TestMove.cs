@@ -27,7 +27,7 @@ public class TestMove : MonoBehaviour
     {
         //transform.position = Vector3.MoveTowards(transform.position,pos2.position,speed*Time.deltaTime);
         Vector3 dir = targetPoint.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, targetPoint.position) <= .2f)
         {

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MultiFinger.unity
     guid: 9841f998bc49de942af079590eb46763
+  - enabled: 1
+    path: Assets/Scenes/PathTest.unity
+    guid: 17a8ae9d25881bd4695d09d7d43a52d0
   m_configObjects: {}
