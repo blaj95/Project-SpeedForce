@@ -19,15 +19,15 @@ public class AttackButtons : MonoBehaviour
         {
             Button b = transform.GetChild(i).GetComponent<Button>();
             attackButtons.Add(index,b);
-            b.onClick.AddListener(Click);
+            b.onClick.AddListener(delegate { Click(b); });
             index += 1;
         }
     }
 
-    public void Click()
+    public void Click(Button button)
     {
         
-
+        Debug.Log(button.name);
 
     }
     
