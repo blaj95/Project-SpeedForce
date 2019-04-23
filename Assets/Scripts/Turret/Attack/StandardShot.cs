@@ -24,7 +24,7 @@ public class StandardShot : AttackTurret
         base.Engage();
         GameObject bullet = Instantiate(projectile, pointOfFire.position, Quaternion.identity);
         Projectile proj = bullet.GetComponent<Projectile>();
-        if (proj != null)
+        if (proj)
         {
             proj.damage = damage;
             proj.SeekTarget(target.transform);

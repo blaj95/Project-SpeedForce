@@ -1890,7 +1890,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086096563}
-  - component: {fileID: 1086096564}
   m_Layer: 0
   m_Name: InputHandler
   m_TagString: Untagged
@@ -1912,19 +1911,6 @@ Transform:
   m_Father: {fileID: 2088731193}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1086096564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086096562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d5af0d165be8a4680ee585c7880b57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedTurret: {fileID: 0}
 --- !u!1 &1096567922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2291,51 @@ Transform:
   m_Father: {fileID: 484090782}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1303968635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303968636}
+  - component: {fileID: 1303968637}
+  m_Layer: 0
+  m_Name: TurretHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1303968636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303968635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2088731193}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303968637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303968635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d5af0d165be8a4680ee585c7880b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Instance: {fileID: 0}
+  mainCamera: {fileID: 562454733}
 --- !u!4 &1350827118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2682871528642924937, guid: 43e26e3a844ffde4eaf8e928a66a7c65,
@@ -3375,6 +3406,7 @@ Transform:
   - {fileID: 794364497}
   - {fileID: 820554550}
   - {fileID: 1086096563}
+  - {fileID: 1303968636}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

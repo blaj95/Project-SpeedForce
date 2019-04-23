@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AttackButtons : MonoBehaviour
 {
-    public Dictionary<int, Button> attackButtons;
+    public Dictionary<Button, int> attackButtons;
 
     public List<GameObject> attackTurrets;
 
@@ -14,11 +14,11 @@ public class AttackButtons : MonoBehaviour
     private void Start()
     {
        // attackButtons = new List<Button>();
-       attackButtons = new Dictionary<int, Button>();
+       attackButtons = new Dictionary<Button,int>();
         for (int i = 0; i < transform.childCount; i++)
         {
             Button b = transform.GetChild(i).GetComponent<Button>();
-            attackButtons.Add(index,b);
+            attackButtons.Add(b,index);
             b.onClick.AddListener(delegate { Click(b); });
             index += 1;
         }
@@ -26,8 +26,13 @@ public class AttackButtons : MonoBehaviour
 
     public void Click(Button button)
     {
-        
-        Debug.Log(button.name);
+
+        if (attackButtons.ContainsKey(button))
+        {
+            int i = attackButtons[button];
+            GameObject g = attackTurrets[i];
+            TurretPlacement.SetTurret(g);
+        }
 
     }
     
