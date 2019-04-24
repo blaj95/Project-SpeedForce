@@ -1139,6 +1139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637c4e43f416300469eaf77bee4ba26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffTurrets:
+  - {fileID: 8733361195593209852, guid: d8b1bbeb887637b41829c538a924f7ba, type: 3}
 --- !u!1 &659789599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dd91666267a954d933fbee433d9c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defenseTurrets:
+  - {fileID: 6071511420938062389, guid: 4e3f92713f3435e45a8e2a845f24e135, type: 3}
 --- !u!1 &1500997287
 GameObject:
   m_ObjectHideFlags: 0
