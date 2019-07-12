@@ -25,25 +25,49 @@ public class MenuNavigation : MonoBehaviour
 
     public void OpenTurretMenuA()
     {
-        if(currentPanel)
-            currentPanel.SetActive(false);
-        aTurrets.SetActive(true);
-        currentPanel = aTurrets;
+        if (currentPanel == aTurrets)
+        {
+            aTurrets.SetActive(false);
+            currentPanel = null;
+        }
+        else
+        {    
+            aTurrets.SetActive(true);
+            if(currentPanel)
+                currentPanel.SetActive(false);
+            currentPanel = aTurrets;
+        }
     }
     
     public void OpenTurretMenuD()
     {
-        if(currentPanel)
-            currentPanel.SetActive(false);
-        dTurrets.SetActive(true);
-        currentPanel = dTurrets;
+        if (currentPanel == dTurrets)
+        {
+            dTurrets.SetActive(false);
+            currentPanel = null;
+        }
+        else
+        {    
+            dTurrets.SetActive(true);
+            if(currentPanel)
+                currentPanel.SetActive(false);
+            currentPanel = dTurrets;
+        }
     }
     
     public void OpenTurretMenuB()
     {
-        if(currentPanel)
-            currentPanel.SetActive(false);
-        bTurrets.SetActive(true);
-        currentPanel = bTurrets;
+        if (currentPanel == bTurrets)
+        {
+            bTurrets.SetActive(false);
+            currentPanel = null;
+        }
+        else
+        {    
+            bTurrets.SetActive(true);
+            if(currentPanel)
+                currentPanel.SetActive(false);
+            currentPanel = bTurrets;
+        }
     }
 }
