@@ -22,6 +22,7 @@ public class AttackButtons : MonoBehaviour
             b.onClick.AddListener(delegate { Click(b); });
             index += 1;
         }
+        gameObject.SetActive(false);
     }
 
     public void Click(Button button)

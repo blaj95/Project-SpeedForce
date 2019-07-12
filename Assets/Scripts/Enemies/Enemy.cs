@@ -5,6 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private float health;
+    private float experience;
+    private float damage;
+    
+    public float speed;
     
     public float Health
     {
@@ -14,12 +18,10 @@ public class Enemy : MonoBehaviour
             health = value;
             if (health <= 0)
             {
-                Die(gameObject);
+                Killed();
             }
         }
     }
-
-    private float experience;
 
     public float Experience
     {
@@ -27,24 +29,30 @@ public class Enemy : MonoBehaviour
         set => experience = value;
     }
 
-    public float speed;
+    public float Damage
+    {
+        get => damage;
+        set => damage = value;
+    }
 
-    public virtual void Die(GameObject gameObject)
+
+    public virtual void Killed()
     {
         Destroy(gameObject);
     }
-    
-    
+
+    public virtual void Die()
+    {
+        Destroy(gameObject);
+    }
 
     public virtual void OnHit()
     {
         
     }
-    
+
     public virtual void OnHit(float damage)
     {
-        
-    }
 
-   
+    }
 }

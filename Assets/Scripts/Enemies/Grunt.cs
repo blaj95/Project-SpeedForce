@@ -10,13 +10,21 @@ public class Grunt : Enemy
     {
         Health = 3;
         Experience = 5;
+        Damage = 2;
         speed = 3;
+        
     }
 
-    public override void Die(GameObject gameObject)
+    public override void Killed()
     {
         PlayerResources.Money += Experience;
-        base.Die(gameObject);
+        UI.OnEnemyKilled();
+        base.Killed();
+    }
+
+    public override void Die()
+    {
+        base.Die();
     }
 
     public override void OnHit(float damage)
