@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class PlayerResources : MonoBehaviour
 {
-    public static float Money;
-
-    public float startingMoney;
-    
-    // Start is called before the first frame update
-    void Start()
+    public static float Money
     {
-        Money = startingMoney;
+        get => money;
+        set
+        {
+            money = value;
+            UI.OnMoneyChange();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+  
+    public float startingMoney;
+    
+    private static float money;
+    
+    // Start is called before the first frame update
+    void Awake()
     {
-        
+        money = startingMoney;
     }
 }

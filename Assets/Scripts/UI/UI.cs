@@ -33,6 +33,11 @@ public class UI : MonoBehaviour
     {
         moneyText.text = "$" + PlayerResources.Money.ToString();
     }
+
+    void MoneyChange()
+    {
+        moneyText.text = "$" + PlayerResources.Money.ToString();
+    }
     
     public static void OnBaseHit()
     {
@@ -42,5 +47,10 @@ public class UI : MonoBehaviour
     public static void OnEnemyKilled()
     {
        Instance.EnemyKilled();
+    }
+
+    public static void OnMoneyChange()
+    {
+        Instance.MoneyChange();
     }
 }

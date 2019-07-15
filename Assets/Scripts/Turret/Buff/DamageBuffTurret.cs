@@ -11,6 +11,7 @@ public class DamageBuffTurret : BuffTurret
     // Start is called before the first frame update
     void Start()
     {
+        Cost = 100f;
         SetStats(10, TurretType.BUFF);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5);
         int i = 0;
@@ -39,5 +40,10 @@ public class DamageBuffTurret : BuffTurret
         Gizmos.DrawWireSphere (transform.position, 5);
     }
     
+    public override float CheckCost()
+    {
+        float cost = 100f;
+        return cost;
+    }
    
 }

@@ -16,7 +16,7 @@ public class ShockwaveTurret : AttackTurret
         SetStats(10,TurretType.ATTACK);
         FireRate = .33f;
         damage = 1f;
-        Cost = 35f;
+        Cost = 75f;
         base.Start();
     }
     
@@ -64,5 +64,11 @@ public class ShockwaveTurret : AttackTurret
         shockMesh.enabled = true;
         yield return new WaitForSeconds(.5f);
         shockMesh.enabled = false;
+    }
+    
+    public override float CheckCost()
+    {
+        float cost = 75f;
+        return cost;
     }
 }

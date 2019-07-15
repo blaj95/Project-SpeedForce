@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,5 +43,10 @@ public class TurretBase : MonoBehaviour
     {
         Health = health;
         type = _type;
+    }
+
+    public virtual float CheckCost()
+    {
+        return 0;
     }
 }

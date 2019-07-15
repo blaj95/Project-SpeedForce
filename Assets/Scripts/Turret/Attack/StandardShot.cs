@@ -30,4 +30,11 @@ public class StandardShot : AttackTurret
             proj.SeekTarget(target.transform);
         }
     }
+
+    public override float CheckCost()
+    {
+        float cost = 50f;
+        return cost;
+    }
+    
 }

@@ -45,6 +45,8 @@ public class AttackTurret : TurretBase
         base.Start();
         startPosition = gameObject.transform;
     }
+    
+    
 
     public virtual void FixedUpdate()
     {

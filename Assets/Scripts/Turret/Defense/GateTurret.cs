@@ -10,6 +10,7 @@ public class GateTurret : DefenseTurret
     {
         SetStats(10, TurretType.DEFENSE);
         damage = 1;
+        Cost = 25f;
     }
 
     // Update is called once per frame
@@ -23,5 +24,11 @@ public class GateTurret : DefenseTurret
         Enemy enemy = other.GetComponent<Enemy>();
         enemy.OnHit(1);
         Debug.Log("Wall has hit enemy");
+    }
+    
+    public override float CheckCost()
+    {
+        float cost = 25f;
+        return cost;
     }
 }

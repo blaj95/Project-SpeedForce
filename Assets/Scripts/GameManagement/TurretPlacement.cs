@@ -9,7 +9,8 @@ public class TurretPlacement : MonoBehaviour
     public static GameObject selectedTurret;
     public Camera mainCamera;
     private int ignoreMask;
-    
+    private bool iscurrentSelectedGameObjectNull;
+
     void Start()
     {
         Instance = this;
@@ -23,24 +24,36 @@ public class TurretPlacement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonUp(0)&& !EventSystem.current.IsPointerOverGameObject())
         {
             if (selectedTurret)
             {
                 PlaceTurret();
             }
-          
+        }
+
+        foreach (Touch touch in Input.touches)
+        {
+            if (Input.touchCount == 1)
+            {
+                if (touch.phase == TouchPhase.Began && EventSystem.current.currentSelectedGameObject == null)
+                {
+                    PlaceTurret();
+                }
+            }
         }
     }
 
     void PlaceTurret()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (PlayerResources.Money >= selectedTurret.GetComponent<TurretBase>().CheckCost())
         {
-            Instantiate(selectedTurret, hit.point, Quaternion.identity);
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                Instantiate(selectedTurret, hit.point, Quaternion.identity);
+            }   
         }
-       
     }
 }
