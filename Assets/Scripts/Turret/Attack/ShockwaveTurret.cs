@@ -19,12 +19,6 @@ public class ShockwaveTurret : AttackTurret
         Cost = 75f;
         base.Start();
     }
-    
-    public override void FixedUpdate()
-    {
-        //base.FixedUpdate();
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -39,6 +33,7 @@ public class ShockwaveTurret : AttackTurret
                 {
                     Enemy e = enemy.GetComponent<Enemy>();
                     e.OnHit(damage);
+                    
                     //slow
                     e.speed = e.speed * .66f;
 

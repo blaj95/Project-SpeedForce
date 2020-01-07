@@ -6,12 +6,7 @@ public class TouchInput : MonoBehaviour
 {
     public GameObject[] markers;
     public Camera mainCamera;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
