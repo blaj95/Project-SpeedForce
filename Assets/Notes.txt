@@ -1,0 +1,10 @@
+Connect Process:
+Click on battery (Or swipe into battery)
+	Once battery is selected, do an animation to show 
+Dragging out of the battery will create a connection chain 
+Once you drag into a turret, the chain will snap into that turret
+When you release the drag, it will form a connection
+
+
+Turret Manager- handle the what turret is selection
+static call into the turret manager to form connection to battery and other turrets
