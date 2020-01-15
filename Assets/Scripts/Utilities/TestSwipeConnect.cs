@@ -15,6 +15,10 @@ public class TestSwipeConnect : MonoBehaviour
 
     public bool inTurret;
     public bool inBattery;
+
+    // TODO: MOVE TO SEPARATE TURRET MANAGER AND CALL STATIC
+    public TurretBase2D selectedTurret;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,25 +45,26 @@ public class TestSwipeConnect : MonoBehaviour
         
         if (Input.GetMouseButton(0))
         {
-            // Vector3 screenPos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-            // cursor.position = screenPos;
-            line.SetPosition(currentLineIndex,cursor.position);
-            
+            //If inTurret, line position snaps to it, if not, follow cursor
+            line.SetPosition(currentLineIndex, !inTurret ? cursor.position : selectedTurret.transform.position);
+
             pointDistance = Vector3.Distance(line.GetPosition(currentLineIndex-1), line.GetPosition(currentLineIndex));
             
-            if (pointDistance > distanceThreshold)
-            {
-                line.positionCount+=1;
-                line.SetPosition(currentLineIndex + 1,screenPos);
-                currentLineIndex += 1;
-            }
+            // CAN EVENTUALLY USE THIS LOGIC FOR CONNECTION DISTANCE RULES
+            // if (pointDistance > distanceThreshold)
+            // {
+            //     line.positionCount+=1;
+            //     line.SetPosition(currentLineIndex + 1,screenPos);
+            //     currentLineIndex += 1;
+            // }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             if (inTurret)
             {
-                // line.enabled = false;
+                Debug.Log("Turret Connected");
+                selectedTurret.highlight.enabled = true;
                 line.transform.parent = null;
                 LineRenderer newLine = Instantiate(linePrefab, cursor.position, Quaternion.identity, cursor).GetComponent<LineRenderer>();
                 line = newLine;
@@ -78,11 +83,13 @@ public class TestSwipeConnect : MonoBehaviour
     public void TurretEntered(TurretBase2D turret)
     {
         inTurret = true;
+        selectedTurret = turret;
     }
     
     public void TurretLeft(TurretBase2D turret)
     {
         inTurret = false;
+        selectedTurret = null;
     }
 
     public void BatteryEntered(BatteryBase battery)

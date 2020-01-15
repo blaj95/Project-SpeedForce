@@ -6,11 +6,12 @@ using UnityEngine;
 public class TurretBase2D : MonoBehaviour
 {
     public TestSwipeConnect swipeManager;
-    
+
+    public SpriteRenderer highlight;
     // Start is called before the first frame update
     void Start()
     {
-        
+        highlight = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
