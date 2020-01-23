@@ -43,7 +43,7 @@ public class TestSwipeConnect : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && line.enabled)
         {
             //If inTurret, line position snaps to it, if not, follow cursor
             line.SetPosition(currentLineIndex, !inTurret ? cursor.position : selectedTurret.transform.position);
@@ -77,7 +77,6 @@ public class TestSwipeConnect : MonoBehaviour
                 line.enabled = false;
             }
         }
-        
     }
 
     public void TurretEntered(TurretBase2D turret)

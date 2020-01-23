@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 433904710}
   - component: {fileID: 433904708}
   m_Layer: 0
-  m_Name: Basic_Turret_Fire
+  m_Name: BasicTurret_Fire
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 968704123}
   - component: {fileID: 968704121}
   m_Layer: 0
-  m_Name: Basic_Turret_Poison
+  m_Name: BasicTurret_Poison
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
