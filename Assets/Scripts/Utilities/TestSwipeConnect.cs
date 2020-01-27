@@ -63,7 +63,15 @@ public class TestSwipeConnect : MonoBehaviour
         {
             if (inTurret)
             {
-                Debug.Log("Turret Connected");
+                //Check to see if the turret already has a connection
+                if (selectedTurret.connectionState == TurretBase2D.ConnectionState.CONNECTED)
+                {
+                    Debug.Log(selectedTurret.name + " is already connected to a battery");
+                    return;
+                }
+                //If not set connection
+                Debug.Log("Set Connection");
+                selectedTurret.connectionState = TurretBase2D.ConnectionState.CONNECTED;
                 selectedTurret.highlight.enabled = true;
                 line.transform.parent = null;
                 LineRenderer newLine = Instantiate(linePrefab, cursor.position, Quaternion.identity, cursor).GetComponent<LineRenderer>();

@@ -8,25 +8,36 @@ public class TurretBase2D : MonoBehaviour
     public TestSwipeConnect swipeManager;
 
     public SpriteRenderer highlight;
-    // Start is called before the first frame update
-    void Start()
+    
+    public enum TurretType
     {
-        highlight = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        FIRE,
+        POISON,
+        WATER
+    }
+    
+    public enum ConnectionState
+    {
+        NONE,
+        CONNECTED
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ConnectionState connectionState = ConnectionState.NONE;
+    public TurretType turretType;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        swipeManager.TurretEntered(this);
+        if (other.CompareTag("Cursor"))
+        {
+            swipeManager.TurretEntered(this);   
+        }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        swipeManager.TurretLeft(this);
+        if (other.CompareTag("Cursor"))
+        {
+            swipeManager.TurretLeft(this);
+        }
     }
 }
