@@ -11,6 +11,7 @@ public class TurretBase2D : MonoBehaviour
     
     public enum TurretType
     {
+        BASIC,
         FIRE,
         POISON,
         WATER
@@ -25,7 +26,12 @@ public class TurretBase2D : MonoBehaviour
     public ConnectionState connectionState = ConnectionState.NONE;
     public TurretType turretType;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public virtual void Awake()
+    {
+        swipeManager = FindObjectOfType<TestSwipeConnect>();
+    }
+
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Cursor"))
         {
@@ -33,7 +39,7 @@ public class TurretBase2D : MonoBehaviour
         }
     }
     
-    private void OnTriggerExit2D(Collider2D other)
+    public virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Cursor"))
         {

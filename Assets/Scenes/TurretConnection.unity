@@ -171,10 +171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 433904707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6c0388ad3bbfb4fb66b16c773160bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d303a56355835e4bba4ecc2787676f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeManager: {fileID: 1749136341}
+  swipeManager: {fileID: 0}
   highlight: {fileID: 1492982830}
   connectionState: 0
   turretType: 0
@@ -593,10 +593,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 968704118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6c0388ad3bbfb4fb66b16c773160bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 426be96a50f4e9745aed0768ac8c9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeManager: {fileID: 1749136341}
+  swipeManager: {fileID: 0}
   highlight: {fileID: 689613438}
   connectionState: 0
   turretType: 0
