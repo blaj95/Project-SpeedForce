@@ -9,6 +9,11 @@ public class TurretBase2D : MonoBehaviour
 
     public SpriteRenderer highlight;
     
+    [HideInInspector]
+    public List<TurretType> mergeTypes;
+
+    public Color spriteColor;
+    
     public enum TurretType
     {
         BASIC,
@@ -29,6 +34,7 @@ public class TurretBase2D : MonoBehaviour
     public virtual void Awake()
     {
         swipeManager = FindObjectOfType<TestSwipeConnect>();
+        spriteColor = GetComponent<SpriteRenderer>().color;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)

@@ -18,7 +18,9 @@ public class TestSwipeConnect : MonoBehaviour
 
     // TODO: MOVE TO SEPARATE TURRET MANAGER AND CALL STATIC
     public TurretBase2D selectedTurret;
-    
+    public BatteryBase selectedBattery;
+
+    public BatteryBase currentBattery;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class TestSwipeConnect : MonoBehaviour
         {
             if (inBattery)
             {
+                selectedBattery = currentBattery;
                 line.enabled = true;
                 line.positionCount = 2;
                 line.SetPosition(0,screenPos);   
@@ -70,13 +73,13 @@ public class TestSwipeConnect : MonoBehaviour
                     return;
                 }
                 //If not set connection
-                Debug.Log("Set Connection");
                 selectedTurret.connectionState = TurretBase2D.ConnectionState.CONNECTED;
                 selectedTurret.highlight.enabled = true;
                 line.transform.parent = null;
                 LineRenderer newLine = Instantiate(linePrefab, cursor.position, Quaternion.identity, cursor).GetComponent<LineRenderer>();
                 line = newLine;
                 currentLineIndex = 1;   
+                selectedBattery.OnConnectionMade(selectedTurret);
             }
             else
             {
@@ -84,6 +87,7 @@ public class TestSwipeConnect : MonoBehaviour
                 line.positionCount = 0;
                 line.enabled = false;
             }
+            selectedBattery = null;
         }
     }
 
@@ -102,10 +106,12 @@ public class TestSwipeConnect : MonoBehaviour
     public void BatteryEntered(BatteryBase battery)
     {
         inBattery = true;
+        currentBattery = battery;
     }
     
     public void BatteryLeft(BatteryBase battery)
-    {
+    { 
+        currentBattery = null;
         inBattery = false;
     }
 }

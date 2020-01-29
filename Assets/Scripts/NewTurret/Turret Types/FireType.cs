@@ -8,6 +8,8 @@ public class FireType : TurretBase2D
     {
         base.Awake();
         turretType = TurretType.FIRE;
+        
+        mergeTypes = new List<TurretType>{TurretType.POISON};
     }
     
     // Update is called once per frame
