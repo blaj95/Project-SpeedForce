@@ -13,6 +13,9 @@ public class TurretBase2D : MonoBehaviour
     public List<TurretType> mergeTypes;
 
     public Color spriteColor;
+
+    //MAYBE TEMPORARY UNTIL A BETTER WAY IS FOUND TO DELETE CONNECTION
+    public GameObject connectionLine;
     
     public enum TurretType
     {

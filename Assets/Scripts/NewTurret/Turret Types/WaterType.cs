@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonType : TurretBase2D
+public class WaterType : TurretBase2D
 {
     public override void Awake()
     {
         base.Awake();
-        turretType = TurretType.POISON;
+        turretType = TurretType.WATER;
         
-        mergeTypes = new List<TurretType>{TurretType.FIRE, TurretType.WATER};
+        mergeTypes = new List<TurretType>{TurretType.POISON};
     }
 
     // Update is called once per frame

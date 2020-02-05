@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BatteryBase : MonoBehaviour
@@ -8,10 +9,14 @@ public class BatteryBase : MonoBehaviour
     public TestSwipeConnect swipeManager;
     public List<TurretBase2D> connectedTurrets;
     public int connectionCount;
+    public int countMax = 2;
+    
+    private TMP_Text countText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        countText = GetComponentInChildren<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class BatteryBase : MonoBehaviour
         Debug.Log(turret.name +" has been connected");
         connectedTurrets.Add(turret);
         connectionCount++;
+        countText.text = connectionCount.ToString();
         if (connectionCount >= 2)
         {
             Debug.Log("Attempting Merge");
@@ -35,6 +41,10 @@ public class BatteryBase : MonoBehaviour
                 Debug.Log("MERGE SUCCESSFUL");
                 tur1.highlight.color = tur2.spriteColor;
                 tur2.highlight.color = tur1.spriteColor;
+            }
+            else
+            {
+                Debug.Log("MERGE FAILED");
             }
         }
     }

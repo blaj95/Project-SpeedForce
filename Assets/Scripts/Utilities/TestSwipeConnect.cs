@@ -8,6 +8,7 @@ public class TestSwipeConnect : MonoBehaviour
     public LineRenderer line;
     public TrailRenderer trail;
     public Transform cursor;
+    public Rigidbody2D cursorRB;
     public GameObject linePrefab;
     public int currentLineIndex;
     public float distanceThreshold;
@@ -31,22 +32,29 @@ public class TestSwipeConnect : MonoBehaviour
     void Update()
     {
         Vector3 screenPos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-        cursor.position = screenPos; 
-        
+        cursorRB.MovePosition(screenPos);
+
+        Touch touch = Input.touches.Length > 0 ? Input.GetTouch(0) : new Touch();
         //First click down
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || touch.phase == TouchPhase.Stationary)
         {
             if (inBattery)
             {
                 selectedBattery = currentBattery;
+                if (selectedBattery.connectionCount >= selectedBattery.countMax)
+                {
+                    Debug.Log("Battery Maxed Out");
+                    return;   
+                }
+
+                Debug.Log("Battery Selected");
                 line.enabled = true;
                 line.positionCount = 2;
-                line.SetPosition(0,screenPos);   
-                Debug.Log("Battery Selected");
+                line.SetPosition(0,selectedBattery.transform.position);
+                line.SetPosition(1,cursor.position);
             }
         }
-        
-        if (Input.GetMouseButton(0) && line.enabled)
+        else if (Input.GetMouseButton(0) ) // || touch.phase == TouchPhase.Moved)
         {
             //If inTurret, line position snaps to it, if not, follow cursor
             line.SetPosition(currentLineIndex, !inTurret ? cursor.position : selectedTurret.transform.position);
@@ -61,8 +69,7 @@ public class TestSwipeConnect : MonoBehaviour
             //     currentLineIndex += 1;
             // }
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && line.enabled)// || touch.phase == TouchPhase.Ended)
         {
             if (inTurret)
             {
@@ -105,8 +112,8 @@ public class TestSwipeConnect : MonoBehaviour
 
     public void BatteryEntered(BatteryBase battery)
     {
-        inBattery = true;
         currentBattery = battery;
+        inBattery = true;
     }
     
     public void BatteryLeft(BatteryBase battery)
